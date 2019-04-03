@@ -63,6 +63,8 @@ void countsrt_vec(int n, uint32_t *v, uint32_t *r, int bits, int pos,
 	int stride = n / VLEN;
 	int bucket[nb][VLEN];
 
+	if (stride * VLEN != n)
+		stride++;
 	stride = stride > 0 ? stride : 1;
 
 	for (i = 0; i < nb * VLEN; i++)
